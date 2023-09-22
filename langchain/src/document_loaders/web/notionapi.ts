@@ -291,7 +291,8 @@ export class NotionAPILoader extends BaseDocumentLoader {
     const childPages = blocks
       .filter((block) => block.type.includes("child_page"))
       .map((block) => block.id);
-    if (childPages.length > 0) this.addToQueue(...childPages);
+    // STOP FETCHING RECURSIVE CHILD PAGES
+    // if (childPages.length > 0) this.addToQueue(...childPages);
 
     // Add child database pages to queue
     const childDatabases = blocks
